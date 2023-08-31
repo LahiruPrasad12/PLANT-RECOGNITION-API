@@ -1,9 +1,9 @@
 from flask_pymongo import PyMongo
 from flask import Flask, request, redirect, jsonify
-# from flask_cors import CORS
+from flask_cors import CORS
 
 app = Flask(__name__)
-# CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 app.config["SECRET_KEY"] = "f0737effe28285dd6f9e50f17b9e41d86f86afbe"
 app.config["MONGO_URI"] = "mongodb+srv://ecoprints:456abc@cluster0.inyuslv.mongodb.net/ecoprints?retryWrites=true&w=majority"
