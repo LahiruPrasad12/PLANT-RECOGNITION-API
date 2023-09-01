@@ -5,14 +5,14 @@ from PIL import Image
 import cv2
 import matplotlib.pyplot as plt
 
-def plant_recognition():
+def plant_recognition(url):
     cnn = tf.keras.models.load_model('models/Plant_Recognition.h5')
     # image_path = 'https://i.ibb.co/d2KDGFc/blob.jpg'
 
     # image = tf.keras.preprocessing.image.load_img(image_path,target_size=[64,64])
     # input_arr = tf.keras.preprocessing.image.img_to_array(image)
     # input_arr = np.array([input_arr]) #Converting single image to batch
-    image_url = 'https://i.ibb.co/d2KDGFc/blob.jpg'
+    image_url = url
 
     # Download the image from the URL
     response = requests.get(image_url)

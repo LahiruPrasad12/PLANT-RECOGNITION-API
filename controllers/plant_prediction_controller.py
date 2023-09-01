@@ -5,10 +5,13 @@ import pipe.plant_prediction_pipeline as prediction
 
 plant_prediction_controller = Blueprint('plant_prediction', __name__)
 
-@plant_prediction_controller.route("/plant", methods = ['GET'])
+@plant_prediction_controller.route("/plant", methods = ['POST'])
 def plantPrediction():
-    if request.method == "GET":
-        ans=prediction.plant_recognition()
+    if request.method == "POST":
+        data = request.json
+        image_url = data['image_url']
+        print(image_url)
+        ans=prediction.plant_recognition(image_url)
 
         test_set = tf.keras.utils.image_dataset_from_directory(
             'models/test',
@@ -33,4 +36,7 @@ def plantPrediction():
         print(result_index[0][0])
 
         print("It's a {}".format(test_set.class_names[result_index[0][0]]))
-        return jsonify(message= "ans")
+        response_data = {
+            "result_index": test_set.class_names[result_index[0][0]],
+        }
+        return jsonify(response_data)
