@@ -52,7 +52,17 @@ def save_prediction():
     predicted_name = data['predicted_name']
     # password = data['password']
 
-    new_item = {"first_name": user_id, "last_name":url,"email": predicted_name}
+    new_item = {"user_id": user_id, "url":url,"predicted_name": predicted_name}
     predicted_collection.insert_one(new_item)
     new_item["_id"] = str(new_item["_id"])
     return jsonify(new_item), 201
+
+
+@plant_prediction_controller.route("/", methods = ['GET'])
+def get_predictions():
+    predictions = []
+    for qanda in predicted_collection.find():
+        qanda["_id"] = str(qanda["_id"])
+        print(qanda)
+        predictions.append(qanda)
+    return jsonify(predictions)
