@@ -12,4 +12,4 @@ app.register_blueprint(plant_prediction_controller, url_prefix='/plant_predictio
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=80)
