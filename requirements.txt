@@ -76,5 +76,3 @@ Flask==2.0.1
 tensorboard==2.6.0
 tensorboard-data-server==0.7.1
 tensorflow==2.6.0
-tensorflow-estimator==2.13.0
-tensorflow-io-gcs-filesystem==0.31.0
