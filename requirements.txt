@@ -78,3 +78,4 @@ tensorboard-data-server==0.7.1
 tensorflow==2.6.0
 pymongo==4.5.0
 Flask-PyMongo==2.3.0
+Flask-Cors==4.0.0
