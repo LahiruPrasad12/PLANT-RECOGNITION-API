@@ -4,9 +4,16 @@ import requests
 from PIL import Image
 import cv2
 import matplotlib.pyplot as plt
+from tensorflow.keras.optimizers import RMSprop
+import os
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+
+config = tf.compat.v1.ConfigProto(device_count={'GPU': 0})
+sess = tf.compat.v1.Session(config=config)
 
 def plant_recognition(url):
-    cnn = tf.keras.models.load_model('models/Plant_Recognition.h5')
+    cnn = tf.keras.models.load_model('models/Plant_Recognition.h5', custom_objects={'CustomRMSprop': RMSprop})
     # image_path = 'https://i.ibb.co/d2KDGFc/blob.jpg'
 
     # image = tf.keras.preprocessing.image.load_img(image_path,target_size=[64,64])
