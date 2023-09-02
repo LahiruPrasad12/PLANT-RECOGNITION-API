@@ -33,7 +33,6 @@ msgpack==1.0.5
 opencv-python==4.7.0.72
 packaging==23.1
 pafy==0.5.5
-pandas==1.5.3
 Pillow==9.5.0
 platformdirs==3.2.0
 pooch==1.6.0
