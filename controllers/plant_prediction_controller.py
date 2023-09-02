@@ -3,6 +3,11 @@ import numpy as np
 import tensorflow as tf
 import pipe.plant_prediction_pipeline as prediction
 from application import db
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+
+config = tf.compat.v1.ConfigProto(device_count={'GPU': 0})
+sess = tf.compat.v1.Session(config=config)
 
 plant_prediction_controller = Blueprint('plant_prediction', __name__)
 
