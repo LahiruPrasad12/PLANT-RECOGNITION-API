@@ -3,7 +3,6 @@ import numpy as np
 import tensorflow as tf
 import pipe.plant_prediction_pipeline as prediction
 from application import db
-from tensorflow.keras.optimizers import RMSprop
 import os
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
