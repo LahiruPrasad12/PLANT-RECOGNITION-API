@@ -59,7 +59,7 @@ def save_prediction():
     predicted_week = data['predicted_week']
     # password = data['password']
 
-    new_item = {"user_id": user_id, "url":url,"predicted_name": predicted_name}
+    new_item = {"user_id": user_id, "url":url,"predicted_name": predicted_name, "predicted_week":predicted_week }
     predicted_collection.insert_one(new_item)
     new_item["_id"] = str(new_item["_id"])
     return jsonify(new_item), 201
