@@ -56,6 +56,7 @@ def save_prediction():
     user_id = data['user_id']
     url = data['image_url']
     predicted_name = data['predicted_name']
+    predicted_week = data['predicted_week']
     # password = data['password']
 
     new_item = {"user_id": user_id, "url":url,"predicted_name": predicted_name}
